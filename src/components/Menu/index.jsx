@@ -1,8 +1,23 @@
+import { Link } from "react-router-dom"
 import "./index.scss"
 export const Header = () => {
     return(
         <>
-            <div class="header-test">Header test</div>
+            <div className="header-wrapper">
+                <nav className="navbar">
+                    <ul>
+                        <li>
+                           <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                           <Link to="/Projects">Projects</Link>
+                        </li>
+                        <li>
+                           <Link to="/">Social Medias</Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </>
     )
 }

@@ -1,6 +1,26 @@
-.header-test{
+.header-wrapper{
     width:100vw;
-    height:100vh;
-    background-color: black;
     color: white;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+
+    .navbar{
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px 0;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            column-gap: 60px;
+            font-size:1.7em;
+            font-weight: normal;
+        }
+    }
 }
