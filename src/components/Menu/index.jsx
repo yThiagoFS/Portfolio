@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Img from "../../assets/imgs/img-teste.jpg"
 import "./index.scss"
 export const Header = () => {
     return(
