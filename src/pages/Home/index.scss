@@ -1,9 +1,9 @@
 .home-container{
-    background-color: red;
     height: 100vh;
     width: 90vw;
     right: 0;
     position: absolute;
+    background-color: gray;
 }
 .home-content{
     display:flex;
@@ -32,7 +32,9 @@
     height: 100%;
     background-color: blue;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
 
     .container-options{
         width:100%;
@@ -48,10 +50,13 @@
             border: none;
             position: relative;
 
+            &:hover{
+                cursor: pointer;
+            }
             &::after{
                 content: '';
                 position: absolute;
-                width: 0;
+                width: 0%;
                 height: 3px;
                 bottom:0;
                 left: 0;
@@ -61,6 +66,7 @@
             &.active::after{
                 width: 100%;
             }
+            
         }
     }
 }
