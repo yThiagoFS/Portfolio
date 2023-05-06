@@ -1,20 +1,28 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import Img from "../../assets/imgs/img-teste.jpg"
+import { usePageContext } from "../../contexts/PageContext"
 import "./index.scss"
 export const Header = () => {
+
+    const { actualPage,  } = usePageContext()
+
+    useEffect(() => {
+       alert(actualPage)
+    }, [])
+
     return(
         <>
             <div className="header-wrapper">
                 <nav className="navbar">
                     <ul>
                         <li>
-                           <Link to="/">Home</Link>
+                           <Link to="/" className={actualPage == "home" ? "active" : "" } >Home</Link>
                         </li>
                         <li>
-                           <Link to="/Projects">Projects</Link>
+                           <Link to="/Projects" className={actualPage == "projects" ? "active" : "" } >Projects</Link>
                         </li>
                         <li>
-                           <Link to="/">Social Medias</Link>
+                           <Link to="/" className={actualPage == "socialmedia" ? "active" : "" }>Social Medias</Link>
                         </li>
                     </ul>
                 </nav>

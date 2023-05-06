@@ -35,7 +35,7 @@ export const HomeContent = ({ content, indexContent }) => {
         setCardContent(
           {
           title: <>Objetivos </>,
-          text: <>Atualmente, pretendo me especializar cada vez mais em .NET e aplicações baseadas em microsserviços</>
+          text: <>Atualmente, pretendo me especializar cada vez mais em .NET e aplicações baseadas em microsserviços, e evoluir pessoalmente e profissionalmente, não só em questões técnicas, mas também comportamentais.</>
           })
       }
     }

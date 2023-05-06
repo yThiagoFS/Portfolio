@@ -1,72 +1,169 @@
-.home-container{
-    height: 100vh;
-    width: 90vw;
-    right: 0;
+.home-container {
     position: absolute;
-    background-color: gray;
-}
-.home-content{
-    display:flex;
-    justify-content:space-evenly;
-    align-items: center;
+    right: 0;
+    width: 90vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+  }
+  
+  .home-content {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     height: 100%;
+  
+    hr {
+      width: 0px;
+      height: 4px;
+      transition: 1s;
+      background-color: #6f2da8;
+      border: none;
 
-    .container-photo{
-        width:200px;
-        height:200px;
-
-        .photo{
-            width:100%;
-            height:100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+      &.active {
+        width: 80%;
+      }
     }
-}
+  
+    .container-photo {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      z-index: 2;
 
-.container-content{
-    max-width:900px;
+      &::after{
+        content: '';
+        position: absolute;
+        height: 210px;
+        width: 0;
+        background-color: #6f2da8;
+        border-radius: 50%;
+        z-index: 1;
+        margin: -5px;
+        left: 0;
+        transition: .7s ease-in-out;
+      }
+
+      &::before{
+        content: '';
+        position: absolute;
+        height: 210px;
+        width: 0;
+        background-color: #6f2da8;
+        border-radius: 50%;
+        z-index: 1;
+        margin: -5px;
+        right: 0;
+        transition: .7s ease-in-out;
+      }
+
+      &.active::after{
+        width: 210px;
+      }
+
+      &.active::before{
+        width: 210px;
+      }
+
+
+      .photo {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        z-index: 2;
+        position: relative;
+       
+      }
+    }
+  }
+  
+  .container-content {
+    position: relative;
+    z-index: 0;
     width: 100%;
-    max-height: 500px;
     height: 100%;
-    background-color: blue;
+    max-width: 900px;
+    max-height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    transform: translateY(-550px);
+    transition: transform 1.2s cubic-bezier(0.01, 0.08, 0.52, 0.87),
+    opacity 1.5s ease-out, border 2s ease-out;
+    opacity: 0;
+    border-radius: 20px;
 
-    .container-options{
-        width:100%;
-        display: flex;
-        justify-content: center;
-        height: 120px;
-        background-color: green;
-
-        button{
-            width: 200px;
-            background-color: black;
-            color: white;
-            border: none;
-            position: relative;
-
-            &:hover{
-                cursor: pointer;
-            }
-            &::after{
-                content: '';
-                position: absolute;
-                width: 0%;
-                height: 3px;
-                bottom:0;
-                left: 0;
-                transition:.3s;
-                background-color: red;
-            }
-            &.active::after{
-                width: 100%;
-            }
-            
-        }
+    
+    &.active {
+      transition-delay: .6s;
+      transform: translateY(0);
+      border: 4px solid #6f2da8;
+      opacity: 1;
+      z-index: 1;
     }
-}
+  
+    .container-options {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  
+      button {
+        position: relative;
+        width: 300px;
+        height: 60px;
+        background-color: black;
+        color: white;
+        border: none;
+        transition: 0.5s ease-out;
+        
+        &:hover {
+          cursor: pointer;
+        }
+  
+        &::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 3px;
+          bottom: 0;
+          left: 0;
+          transition: width 0.6s;
+          background-color: #6f2da8;
+        }
+  
+        &.active {
+          background-color: rgba(155, 155, 155, 0.7);
+          
+          &:nth-child(1){
+            border-right: 3px solid #6f2da8;
+          }
+
+          &:nth-child(2){
+            border-right: 3px solid #6f2da8;
+            border-left: 3px solid #6f2da8;
+          }
+
+          &:nth-child(3){
+            border-left: 3px solid #6f2da8;
+          }
+
+          &::after {
+            width: 100%;
+          }
+        }
+
+        
+      }
+    }
+  }
+  
+  .container-animation {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 1000px;
+    height: 321px;
+    overflow: hidden;
+  }

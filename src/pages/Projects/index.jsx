@@ -4,7 +4,7 @@ import { Header } from "../../components/Menu"
 
 export const Projects = () => {
     return (<>
-        <Header />
+        <Header actualPage={"projects"}/>
         <div>Projects</div>
       
         </>

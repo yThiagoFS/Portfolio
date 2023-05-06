@@ -1,7 +1,6 @@
 .content{
     width: 100%;
     height: 100%;
-    background-color: black;
     color: white;
     display: flex;
     flex-direction: column;
@@ -9,12 +8,12 @@
     transition: .6s ease-in-out;
 
     .content-title{
-        padding-top:25px;
+        margin-top:25px;
         font-size:1.1em;
         text-align: center;
 
 
-        transform: translateX(-150px);
+        transform: translateX(-50px);
         opacity: 0;
 
         &.active{

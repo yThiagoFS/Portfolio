@@ -1,23 +1,17 @@
 .header-wrapper{
     width:15vw;
     color: white;
-    background-color: #808080;
+    background-color: black;
     position: fixed;
     height: 100vh;
     top: 0;
     left: 0;
-    border-right: 1px solid white;
+    border-right: 4px solid #6f2da8;
 
     .navbar{
         padding: 20px 0;
         width: 100%;
         height: 100%;
-
-    .photo{
-        width:250px;
-        height:250px;
-        border-radius: 50%;
-    }
 
     ul {
         display: flex;
@@ -28,6 +22,27 @@
         row-gap: 60px;
         font-size:1.7em;
         font-weight: normal;
-    }
+
+        a{
+            position: relative;
+
+            &::after{
+                content: '';
+                position: absolute;
+                width: 0px;
+                height: 4px;
+                left: 0;
+                bottom: 0;
+                background-color: red;
+            }
+
+            &.active::after{
+                width: 100%;
+                transition: .7s ease-in-out;
+            }
+            
+        }
+       
+        }
     }
 }
