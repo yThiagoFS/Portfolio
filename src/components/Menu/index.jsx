@@ -1,14 +1,9 @@
-import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { usePageContext } from "../../contexts/PageContext"
 import "./index.scss"
 export const Header = () => {
 
-    const { actualPage,  } = usePageContext()
-
-    useEffect(() => {
-       alert(actualPage)
-    }, [])
+    const { actualPage  } = usePageContext()
 
     return(
         <>

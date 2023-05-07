@@ -1,3 +1,9 @@
+:root {
+    --background-color: #6f2da8;
+  }
+  
+  $base-color:var(--background-color);;
+
 .header-wrapper{
     width:15vw;
     color: white;
@@ -6,7 +12,7 @@
     height: 100vh;
     top: 0;
     left: 0;
-    border-right: 4px solid #6f2da8;
+    border-right: 4px solid $base-color;
 
     .navbar{
         padding: 20px 0;
@@ -33,7 +39,7 @@
                 height: 4px;
                 left: 0;
                 bottom: 0;
-                background-color: red;
+                background-color: $base-color;
             }
 
             &.active::after{

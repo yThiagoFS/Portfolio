@@ -10,12 +10,17 @@ export const Home = () => {
     const content = ["Sobre Mim", "Experiência", "Objetivos"]
     const [indexContent, setIndexContent] = useState(0)
     const [isActive, setIsActive] = useState(false)
-    const { handleActualPage } = usePageContext()
+    const { handleActualPage, actualColor } = usePageContext()
 
     useEffect(() => {
         setTimeout(() => setIsActive(true), 250)
-        
+        handleActualPage("home")
     },[])
+
+    useEffect(() => {
+        document.documentElement.style.setProperty("$base-color", actualColor)
+        console.log(actualColor)
+    }, [actualColor])
 
     const handleContent = (index) => {
         setIndexContent(index)
