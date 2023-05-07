@@ -22,7 +22,7 @@ export const Home = () => {
         console.log(actualColor)
     }, [actualColor])
 
-    const handleContent = (index) => {
+    const handleContent = index => {
         setIndexContent(index)
     }
     return (
