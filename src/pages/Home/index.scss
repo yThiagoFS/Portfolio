@@ -1,15 +1,17 @@
 :root {
   --background-color: #6f2da8;
+  --base-background: url("https://i.pinimg.com/originals/c1/a9/3a/c1a93a1d0de0059a3119b8b1a55ce582.gif");
 }
 
-$base-color:var(--background-color);;
+$base-color:var(--background-color);
+$base-background:var(--base-background);
 
 .home-container {
     position: absolute;
     right: 0;
     width: 100vw;
     height: 100vh;
-    background:url("https://i.pinimg.com/originals/c1/a9/3a/c1a93a1d0de0059a3119b8b1a55ce582.gif") no-repeat center center;
+    background:$base-background no-repeat center center;
     background-size: cover;
   }
   

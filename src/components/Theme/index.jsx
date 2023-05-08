@@ -15,22 +15,22 @@ import "./index.scss"
   }
   
   export const Themes = ({ children }) => {
-    const[isButtonsActive, setIsButtonsActive] = useState(false)
-    const { handleChangeColor } = usePageContext()
+    const[isButtonsActive, setIsButtonsActive] = useState([false, ""])
+    const { handleChangeColor, handleChangeBackground, backgrounds } = usePageContext()
   
-    const handleButtonsActive = () => {
-      setIsButtonsActive(!isButtonsActive)
+    const handleButtonsActive = (propertie) => {
+      setIsButtonsActive([!isButtonsActive[0], propertie])
     }
   
     return (
         <>
       <Header />
       <div style={{ position: "fixed", top:"5px", left: "14vw", zIndex: "2", display:"flex" }}>
-        { isButtonsActive == true 
-        ? <IoIosArrowBack style={arrowStyle} onClick={handleButtonsActive}/> 
-        : <IoIosArrowForward style={arrowStyle} onClick={handleButtonsActive}/> }
+        { ( isButtonsActive[0] === true && isButtonsActive[1] === "colors" ) 
+        ? <IoIosArrowBack style={arrowStyle} onClick={() => handleButtonsActive("colors")}/> 
+        : <IoIosArrowForward style={arrowStyle} onClick={() => handleButtonsActive("colors")}/> }
   
-        <div className={isButtonsActive === true ? "wrapper-buttons active" : "wrapper-buttons"}>
+        <div className={( isButtonsActive[0] === true && isButtonsActive[1] === "colors" ) ? "wrapper-buttons active" : "wrapper-buttons"}>
           <button
             style={{ backgroundColor: "red" }}
             onClick={() => handleChangeColor("red")}
@@ -53,8 +53,18 @@ import "./index.scss"
           ></button>
         </div>
       </div>
+          <div style={{position: "fixed", top:"5px", right: "14vw", zIndex: "2", display:"flex"}}>
+          { ( isButtonsActive[0] === true && isButtonsActive[1] === "images" ) 
+          ? <IoIosArrowForward style={arrowStyle} onClick={() => handleButtonsActive("images")} />
+          : <IoIosArrowBack style={arrowStyle} onClick={() => handleButtonsActive("images")} />}
 
-      {children}
+          <div className={( isButtonsActive[0] === true && isButtonsActive[1] === "images" ) ? "wrapper-images active" : "wrapper-images"}>
+            {backgrounds.map((background, index) => (
+              <img key={index} src={background} style={{width:"40px", height:"40px", marginLeft:"10px", cursor:"pointer"}} onClick={() => handleChangeBackground(background)} />
+            ))}
+          </div>
+          </div>
+      {children} 
       </>
     );
   };

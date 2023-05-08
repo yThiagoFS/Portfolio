@@ -1,23 +1,34 @@
-.wrapper-buttons{
-    transform: translateX(-150px);
+@mixin before-content{
+    &::before{
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    z-index: 1;
+    }
+};
+
+@mixin wrappers-base-content{
     transition: .7s;
     z-index: -1;
     opacity: 0;
-    
-    &::before{
-        content: '';
-        position: absolute;
-        width: 200px;
-        height: 40px;
-        z-index: 1;
-    }
+}
 
+@mixin active-class {
     &.active{
-        z-index: 2;
-        transform: translateX(10px);
-        opacity: 1;
-
+    z-index: 2;
+    transform: translateX(10px);
+    opacity: 1;
     }
+}
+
+.wrapper-buttons{
+    transform: translateX(-150px);
+    @include wrappers-base-content;
+
+    @include before-content;
+
+    @include active-class;
 
     &.active::before{
         z-index: -1;
@@ -32,6 +43,20 @@
         outline: none;
         border: 1px solid white;
         cursor: pointer;
+    }
+}
+
+.wrapper-images{
+    transform: translateX(150px);
+    @include wrappers-base-content;
+   
+    @include before-content;
+
+    @include active-class;
+
+    &.active::before{
+        z-index: -1;
+        background-color: transparent;
     }
 
 }
