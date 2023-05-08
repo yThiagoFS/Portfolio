@@ -18,8 +18,8 @@ import "./index.scss"
     const[isButtonsActive, setIsButtonsActive] = useState([false, ""])
     const { handleChangeColor, handleChangeBackground, backgrounds } = usePageContext()
   
-    const handleButtonsActive = (propertie) => {
-      setIsButtonsActive([!isButtonsActive[0], propertie])
+    const handleButtonsActive = (property) => {
+      setIsButtonsActive([!isButtonsActive[0], property])
     }
   
     return (
@@ -60,7 +60,7 @@ import "./index.scss"
 
           <div className={( isButtonsActive[0] === true && isButtonsActive[1] === "images" ) ? "wrapper-images active" : "wrapper-images"}>
             {backgrounds.map((background, index) => (
-              <img key={index} src={background} style={{width:"40px", height:"40px", marginLeft:"10px", cursor:"pointer"}} onClick={() => handleChangeBackground(background)} />
+              <img key={index} src={background} style={{width:"40px", height:"40px", marginLeft:"10px", cursor:"pointer"}} onClick={() => handleChangeBackground(index)} />
             ))}
           </div>
           </div>
